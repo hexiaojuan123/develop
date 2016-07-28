@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
-<title>O(∩_∩)O~</title>
+<title>分享页面</title>
 <style>
 body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
         .text_light {
@@ -45,42 +45,47 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 	background-color:transparent;
 	border: transparent;
 }
+#footerbtn{
+	    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+}
 </style>
 <body>
 <div class="container">
-<form action="{:U('Addcustomer')}" method="get">
-<div class="col-md-12" style="text-align:center;margin-top:1em;">
-<h1>推荐给谁</h1>
-</div>
-<div class="col-md-12">
-<div class="form-group">
-<label for="customername">客户名称：</label>
-<input type="text" id="CustomerName" name="CustomerName" class="form-control" value="" placeholder="CustomerName"/>
-</div>
-<div class="form-group">
-<label for="CustomerPhone">手机号：</label>
-<input type="text" id="CustomerPhone" name="CustomerPhone" class="form-control" value="" placeholder="CustomerPhone"/>
-</div>
-<div class="form-group">
-<label for="SelectObj">推荐项目：</label>
-<select class="form-control" name="SelectObj">
-<option value="0">请选择推荐项目</option>
+
+
+<!-- start详情 -->
+
+<div class="row">
 <volist name="list" id="vo">
-  <option value="{$vo['id']}">{$vo['title']}</option>
-  </volist>
-</select>
+  <div class="col-sm-4 col-md-12">
+    <div class="thumbnail">
+      <a href="#">
+      <img src="__PUBLIC__/{$vo['cover']}" alt="detal" >
+      </a>
+      <div class="caption">
+        <h3>{$vo['title']}</h3>
+        <p>{$vo['connect']}</p>
+      </div>
+    </div>
+  </div>
+    </volist>
 </div>
-<div class="form-group">
-<button type="submit" class="btn btn-default btn-block">推荐给他/她</button>
+
+<div id="footerbtn" class="row">
+<div class="col-xs-12 col-md-12" style="padding: 0;">
+    <div class="btn-group btn-group-justified" role="group">
+        <a type="button" class="btn btn-success btn-lg" style="width:50%" role="button" href="{:U('/Home/Register')}">成为经纪人</a>
+        <a type="button" class="btn btn-warning btn-lg" style="width:50%" role="button" href="{:U('haveintent',array('uid'=>I('get.uid'),'orid'=>I('get.orid')))}">我有意向</a>
+    </div>
 </div>
+
 </div>
-</form>
+<!-- end详情 -->
+</div>
 </body>
 </html>
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
-<script>
-$(function(){
-	$('#realname').focus();
-});
-</script>

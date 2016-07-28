@@ -1,0 +1,263 @@
+[ 2016-07-27T08:51:33+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000773s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6173 AND `id` = 1  [ RunTime:0.0011s ]
+
+[ 2016-07-27T08:51:50+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000862s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6173 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T11:24:34+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000730s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T11:27:28+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002101s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0002s ]
+
+[ 2016-07-27T11:27:34+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000757s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0049s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T11:28:07+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T11:28:18+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000679s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T11:28:24+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6174 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T14:34:36+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000757s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0028s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6175 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T14:34:38+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000554s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000989s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6175 AND `id` = 1  [ RunTime:0.0004s ]
+
+[ 2016-07-27T15:56:13+08:00 ] ::1 /develop/Home/Index
+ERR: 1052:Column 'id' in where clause is ambiguous
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `user`  RIGHT JOIN `Customer` ON `Customer`.`userid`=`User`.`id`   WHERE `openid` = 'oGYnqt5R74jztGcIGSJ6XXMXYxKs' AND `id` = '6181' LIMIT 1  
+
+[ 2016-07-27T16:02:37+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004911s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:02:43+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.012370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013497s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0065s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:03:12+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0061s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0004s ]
+
+[ 2016-07-27T16:03:35+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0008s ]
+
+[ 2016-07-27T16:03:48+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000831s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0023s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:03:53+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000738s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0012s ]
+
+[ 2016-07-27T16:03:56+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020618s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0011s ]
+
+[ 2016-07-27T16:04:10+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021130s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0022s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:04:34+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010054s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020921s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0002s ]
+
+[ 2016-07-27T16:04:51+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005260s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0022s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0002s ]
+
+[ 2016-07-27T16:04:53+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000864s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:06:50+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.012543s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.024431s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0047s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0004s ]
+
+[ 2016-07-27T16:06:54+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010375s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0072s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0010s ]
+
+[ 2016-07-27T16:07:09+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.021899s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0022s ]
+
+[ 2016-07-27T16:08:38+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015892s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0024s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0012s ]
+
+[ 2016-07-27T16:08:40+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.011381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012726s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0047s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0011s ]
+
+[ 2016-07-27T16:08:42+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010781s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011390s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0072s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:08:58+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004819s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005593s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0056s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0015s ]
+
+[ 2016-07-27T16:09:06+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020315s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0032s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:09:15+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004515s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005094s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0051s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0005s ]
+
+[ 2016-07-27T16:10:38+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001883s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0049s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:10:59+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014371s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:11:05+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009965s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014333s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0046s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0012s ]
+
+[ 2016-07-27T16:11:07+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:11:52+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000760s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001394s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:11:53+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020599s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-27T16:15:08+08:00 ] ::1 /develop/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0023s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6181 AND `id` = 1  [ RunTime:0.0003s ]
+

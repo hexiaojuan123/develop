@@ -70,7 +70,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 <div class="panel-body">
 <div class="pull-left"><?php echo ($userinfo['username']); ?></div>
 <img class="pull-left img-circle" alt="<?php echo ($userinfo['username']); ?>" src="/develop/Public/common/images/face.jpg" width="30px" height="30px" />
-<div class="pull-right">推荐：1人，余额￥:<?php echo ($userinfo['balance']); ?></div>
+<div class="pull-right">推荐：<?php echo ($count); ?>人，余额￥:<?php echo ($userinfo['balance']); ?></div>
 <div class="clearfix"></div>
 </div>
 </div><?php endif; ?>
@@ -87,10 +87,10 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 
 
 <div class="col-md-6">
-<a herf="#">
+<a href="<?php echo U('/Home/Customer');?>">
 <div class="panel panel-default">
 <div class="panel-body">
-我的客户<span class="badge">1</span>
+我的客户<span class="badge"><?php echo ($count); ?></span>
 </div>
 </div>
 </a>
@@ -98,7 +98,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 
 
 <div class="col-md-6">
-<a herf="#">
+<a href="#">
 <div class="panel panel-default">
 <div class="panel-body">
 我的酬劳
@@ -109,7 +109,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 
 
 <div class="col-md-6">
-<a herf="#">
+<a href="#">
 <div class="panel panel-default">
 <div class="panel-body">
 活动规则
@@ -150,4 +150,5 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 </div>
 </body>
 </html>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>

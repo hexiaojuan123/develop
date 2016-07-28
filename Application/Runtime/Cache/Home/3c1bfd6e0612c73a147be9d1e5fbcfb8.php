@@ -48,7 +48,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 </style>
 <body>
 <div class="container">
-<form action="<?php echo U('Register');?>" method="get">
+<form action="<?php echo U('Register');?>" method="post">
 <div class="col-md-12" style="text-align:center;margin-top:1em;">
 <img class="img-circle" alt="<?php echo ($userinfo['username']); ?>" src="/develop/Public/common/images/face.jpg" width="50px" height="50px" />
 </div>
@@ -74,6 +74,9 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 <div class="clearfix"></div>
 </div>
 <div class="form-group">
+<input name="uid" value="<?php echo I('get.uid');?>" hidden />
+<input name="orid" value="<?php echo I('get.orid');?>" hidden />
+<input name="redirect" value="<?php echo I('get.redirect');?>" hidden />
 <button type="submit" class="btn btn-default btn-block">注册</button>
 </div>
 </div>

@@ -4,7 +4,7 @@ return array(
     'SHOW_PAGE_TRACE' =>true,
     'URL_HTML_SUFFIX'=>'shtml',
     'DEFAULT_MODULE'=>'Home',
-    'URL_MODEL' => '2',
+    'URL_MODEL' => '3',
     //数据库连接字符串
     'DB_TYPE'=>'mysql',
     'DB_HOST'=>'localhost',
