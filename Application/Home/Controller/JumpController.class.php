@@ -2,25 +2,40 @@
 namespace Home\Controller;
 use Think\Controller;
 use Common\Lib\Scope;
-use Common\Lib\Jsapi_Ticket;
-use Common\Lib\JS_SDK;
-class RegisterController extends Controller {
+class JumpController extends Controller {
     public function index(){
-        $User=M('User');
-        $condition['openid']=session('openid');
-        $selsect_openid=$User->where($condition)->find();
-           if(!$selsect_openid){
-               redirect(__APP__.'/Home/Jump');
-               exit();
-             }else {
-                $this->assign('userinfo',$selsect_openid);
-             }
-        $jssdk=new JS_SDK();
-        $sh=$jssdk->sharedata($_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
-        $this->assign('sh',$sh);
-        var_dump($sh);
-        $this->assign('appid',$jssdk->getAPPID());
-        $this->display();
+              $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump';
+              $scope=new Scope($redirect_url,'snsapi_userinfo');
+              $code=I('code');
+              if(empty($code)){
+                  redirect($scope->triggerurl());
+                  exit();
+              }else{
+                $data=$scope->GetAccess_token($code);
+                if($data->errcode==40029){
+                    redirect($scope->triggerurl());
+                    exit();
+                }else{
+                    $res=$scope->Get_user_info($data['access_token'], $data['openid']);
+                    if(!empty($res->openid)){
+                        $User=M('User');
+                        $condition['openid']=$res->openid;
+                        session('openid',$res->openid);
+                        $selsect_openid=$User->where($condition)->find();
+                        if(!$selsect_openid){
+                            $datainfo['username']=$res->nickname;
+                            $datainfo['openid']=$res->openid;
+                            $datainfo['faceimg']=$res->headimgurl;
+                            $datainfo['city']=$res->country.','.$res->province.','.$res->city;
+                            $datainfo['sex']=$res->sex;
+                            $sqlres=$User->add($datainfo);
+                        }
+                    }else {
+                        $this->error('获取用户信息失败,openid为空');
+                    }
+                }
+              }
+              redirect(__APP__.'/Home/Register');
     }
     public function http_request($url) {
         $curl=curl_init();

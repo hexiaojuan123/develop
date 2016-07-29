@@ -1,0 +1,98 @@
+[ 2016-07-29T09:27:27+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-29T09:27:39+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0046s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 2  [ RunTime:0.0011s ]
+
+[ 2016-07-29T09:33:33+08:00 ] ::1 /develop/index.php?s=/Home/share/order=1.shtml
+ERR: 非法操作:order=1
+
+[ 2016-07-29T09:33:40+08:00 ] ::1 /develop/index.php?s=/Home/share/orid=1.shtml
+ERR: 非法操作:orid=1
+
+[ 2016-07-29T09:33:45+08:00 ] ::1 /develop/index.php?s=/Home/share/order=1.shtml
+ERR: 非法操作:order=1
+
+[ 2016-07-29T09:34:15+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/2.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:34:40+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/1.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:36:07+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/1.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:36:07+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/2.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:36:10+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0023s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 1  [ RunTime:0.0003s ]
+
+[ 2016-07-29T09:36:12+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0052s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 1  [ RunTime:0.0002s ]
+
+[ 2016-07-29T09:36:15+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0024s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 2  [ RunTime:0.0010s ]
+
+[ 2016-07-29T09:36:45+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/2.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:36:45+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/1.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:40:48+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0029s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 1  [ RunTime:0.0004s ]
+
+[ 2016-07-29T09:40:50+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001098s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001731s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 2  [ RunTime:0.0003s ]
+
+[ 2016-07-29T09:42:23+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/1.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:42:24+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/2.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:42:25+08:00 ] ::1 /develop/index.php?s=/Home/share/orid/1.shtml
+ERR: 非法操作:orid
+
+[ 2016-07-29T09:42:39+08:00 ] ::1 /develop/index.php?s=/Home/Customer/getinfo.shtml
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+SQL: SHOW COLUMNS FROM `customer` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `customer` WHERE `userid` = 6185 AND `id` = 1  [ RunTime:0.0004s ]
+
+[ 2016-07-29T16:22:22+08:00 ] ::1 /develop/
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'jihulian'@'localhost' (using password: YES)
+
+[ 2016-07-29T16:22:23+08:00 ] ::1 /develop/
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'jihulian'@'localhost' (using password: YES)
+

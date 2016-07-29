@@ -63,7 +63,7 @@ abstract class WX
         $output=curl_exec($curl);
         curl_close($curl);
         $json=json_decode($output);
-        return $output;
+        return $json;
     }
 }
 

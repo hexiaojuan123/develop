@@ -8,9 +8,9 @@ return array(
     //数据库连接字符串
     'DB_TYPE'=>'mysql',
     'DB_HOST'=>'localhost',
-    'DB_USER'=>'root',
-    'DB_PWD'=>'5230178',
-    'DB_NAME'=>'bsl',
+    'DB_USER'=>'jihulian',
+    'DB_PWD'=>'pr258gf4',
+    'DB_NAME'=>'jihulian',
     'DB_PORT'=>'3306',
     
     //默认目录
