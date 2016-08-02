@@ -4,7 +4,8 @@ class RecommendController extends CommonController {
 
     public function index(){
         $order=M('Order');
-        $res=$order->select();
+        $param['display']=2;//加载所需显示的商品
+        $res=$order->where($param)->select();
         if($res)
         $this->assign('list',$res);
         $this->display();
@@ -14,13 +15,21 @@ class RecommendController extends CommonController {
         $data['customername']=I('CustomerName');
         $data['customerphone']=I('CustomerPhone');
         $data['selectobj']=I('SelectObj');
-        $data['userid']=!empty(session('uid'))?session('uid'):NULL;
-        if(!$Customer->create($data)){
-            $this->error($Customer->getError());
+        $data['userid']=session('uid');
+        $data['source']=1;//直接来院
+        $where['customerphone']=$data['customerphone'];
+        $where['userid']=$data['userid'];
+        $res=$Customer->where($where)->find();
+        if($res){
+            $this->error('当前用户已在推荐列表中无需重复添加');
         }else{
-            $res=$Customer->add();
-            if($res){
-                $this->success('操作成功,请将该条信息分享给好友',__APP__.'/Home/Share?uid='.session('uid').'&orid='.$data['selectobj']);
+            if(!$Customer->create($data)){
+                $this->error($Customer->getError());
+            }else{
+                $res=$Customer->add();
+                if($res){
+                    $this->success('操作成功,请将该条信息分享给好友',U('/Home/Sendshare/index',array('goodsid'=>$data['selectobj'],'sendid'=>$data['userid'],'customerid'=>$res)));
+                }
             }
         }
     }

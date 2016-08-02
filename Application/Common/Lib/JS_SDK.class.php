@@ -1,6 +1,11 @@
 <?php
 namespace Common\Lib;
 
+/**
+ * js_sdk派生类
+ * @author pengbd3
+ *
+ */
 class JS_SDK extends WX
 {
     /**
@@ -20,14 +25,15 @@ class JS_SDK extends WX
         return $ticket;
     }
     /**
-     * 
-     * @param string $url
+     * 微信自定义分享 数据封装
+     * @param string $url 请求URL
+     * @return array $data 返回数组
      */
-    public function sharedata($url=NULL){
+    public function sharedata(){
         $noncestr=$this->get_randstr();//随机字符串
         $jsapi_ticket='jsapi_ticket='.$this->jsapi_ticket();
         $timestamp=time();//时间戳
-        $aurl='&url=http://'.$url;
+        $aurl='&url=http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         $str=$jsapi_ticket.'&noncestr='.$noncestr.'&timestamp='.$timestamp.$aurl;
         $signature=sha1($str);
         $data['noncestr']=$noncestr;

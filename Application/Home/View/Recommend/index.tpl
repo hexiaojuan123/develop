@@ -1,54 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
-<title>O(∩_∩)O~</title>
-<style>
-body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
-        .text_light {
-            border-radius: 15px;
-            padding: 5px 10px;
-            background-color: #000;
-            color: #fff;
-        }
-        .abo{
-	        margin-bottom:50px;
-        	margin-left:10px;
-        }
-        .cover_text {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        body{
-			background-color: #f4f3f1;
-        }
-        .l-btn{
-		background-color:#FFAE00;border-color: #D4AA00;
-        }
-.panel-default:hover{
-	color:#fff;
-	background-color:#000;
-	cursor: pointer;
-}
-.panel-default .panel-body{
-	text-align:center;
-	
-}
-.col-md-6 a{
-	color:#000;
-}
-.badge{
-	background-color:#000;
-}
-.thumbnail{
-	background-color:transparent;
-	border: transparent;
-}
-</style>
-<body>
-<div class="container">
-<form action="{:U('Addcustomer')}" method="get">
+<extend name="public/base" />
+<block name="main">
+<form action="{:U('Addcustomer')}" method="post">
 <div class="col-md-12" style="text-align:center;margin-top:1em;">
 <h1>推荐给谁</h1>
 </div>
@@ -64,8 +16,8 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 <div class="form-group">
 <label for="SelectObj">推荐项目：</label>
 <select class="form-control" name="SelectObj">
-<option value="0">请选择推荐项目</option>
-<volist name="list" id="vo">
+<if condition="I('get.selectid') neq null"><option value="{:I('get.selectid')}">{:I('get.title')}</option><else /><option value="0">请选择推荐项目</option></if>
+  <volist name="list" id="vo">
   <option value="{$vo['id']}">{$vo['title']}</option>
   </volist>
 </select>
@@ -75,12 +27,12 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 </div>
 </div>
 </form>
-</body>
-</html>
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+</block>
+
+<block name="js">
 <script>
-$(function(){
-	$('#realname').focus();
-});
+    $(function(){
+    	$('#realname').focus();
+    });
 </script>
+</block>

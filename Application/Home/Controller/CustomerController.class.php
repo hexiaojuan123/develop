@@ -33,25 +33,25 @@ class CustomerController extends CommonController {
         $id=I('id');
         $Customer=M('Customer');
         $condition['userid']=session('uid');
-        $condition['id']=$id;
-        $res=$Customer->where($condition)->select();
+        $condition['think_customer.id']=$id;
+        $join='INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj` ';
+        $field='`think_customer`.id as id,`selectobj`,`userid`,`customername`,`customerphone`,`display`,`status`,`think_order`.`title`,`think_customer`.`createtime` ';
+        $res=$Customer->join($join)->field($field)->where($condition)->find();
         if($res){
-            foreach ($res as  $key=>$val){
-                switch ($val['status']){
+                switch ($res['status']){
                     case 1:
-                        $res[$key]['status']='等待反馈';
+                        $res['status']='等待反馈';
                         break;
                     case 2:
-                        $res[$key]['status']='<span class="label label-info">有意向</span>';
+                        $res['status']='<span class="label label-info">有意向</span>';
                         break;
                     case 3:
-                        $res[$key]['status']='成交';
+                        $res['status']='成交';
                         break;
                     default:
-                        $res[$key]['status']='等待反馈';
+                        $res['status']='等待反馈';
                         break;
                 }
-            }
             //$res[$key]['createtime']=$newdate->timeDiff($val['createtime']);
         }
         return $this->ajaxReturn($res);

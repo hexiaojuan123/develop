@@ -20,8 +20,7 @@
 <div id="footerbtn" class="row">
 <div class="col-xs-12 col-md-12" style="padding: 0;">
     <div class="btn-group btn-group-justified" role="group">
-        <a type="button" class="btn btn-success btn-lg" style="width:50%" role="button" href="{:U('/Home/Register')}">成为经纪人</a>
-        <a type="button" class="btn btn-warning btn-lg" style="width:50%" role="button" href="{:U('haveintent',array('sendid'=>I('get.sendid'),'goodsid'=>I('get.goodsid'),'customerid'=>I('get.customerid')))}">我有意向</a>
+        <a type="button" class="btn btn-warning btn-lg btn-block" role="button">分享</a>
     </div>
 </div>
 

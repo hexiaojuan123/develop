@@ -6,14 +6,14 @@ class Scope extends WX
    private $scopetype;
    private $state;
    private $response_type;
-/**
+   /**
     * Scope 构造函数
     * @param string $_redirect 回调地址哎
     * @param string $_scoptype scopt的类型 snsapi_base snsapi_userinfo
     * @param string $_state 默认可为空
     * @param string $_response_type 默认code
     */
-   public function __construct($_redirect=NULL,$_scoptype='snsapi_base',$_state=null,$_response_type='code') {
+   public function __construct($_redirect=NULL,$_scoptype='snsapi_base',$_state=NULL,$_response_type='code') {
        $this->redirect_uri=urlencode($_redirect);
        $this->scopetype=$_scoptype;
        $this->state=$_state?$_state:null;
@@ -47,6 +47,12 @@ class Scope extends WX
        }
        return $data;
    }
+   /**
+    * 获取微信用户基本信息
+    * @param string $access_token 用户的access_token
+    * @param string $openid 用户的openid
+    * @return array $userinfo 返回的用户基本信息
+    */
    public function Get_user_info($access_token,$openid) {
        $url='https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN ';
        $userinfo=$this->http_request($url);

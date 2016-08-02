@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
-<title>哈哈</title>
-<style>
-body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
-        .text_light {
-            border-radius: 15px;
-            padding: 5px 10px;
-            background-color: #000;
-            color: #fff;
-        }
-        .abo{
-	        margin-bottom:50px;
-        	margin-left:10px;
-        }
-        .cover_text {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        body{
-			background-color: #f4f3f1;
-        }
-        .l-btn{
-		background-color:#FFAE00;border-color: #D4AA00;
-        }
-.panel-default:hover{
-	color:#fff;
-	background-color:#000;
-	cursor: pointer;
-}
-.panel-default .panel-body{
-	text-align:center;
-	
-}
-.col-md-6 a{
-	color:#000;
-}
-.badge{
-	background-color:#000;
-}
-.thumbnail{
-	background-color:transparent;
-	border: transparent;
-}
-</style>
-<body>
-<div class="container">
+<extend name="public/base" />
+<block name="main">
 <if condition="$userinfo eq null ">
 <form action="" method="get">
 <div class="panel panel-default">
@@ -70,7 +22,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 <div class="panel panel-default">
 <div class="panel-body">
 <div class="pull-left">{$userinfo['username']}</div>
-<img class="pull-left img-circle" alt="{$userinfo['username']}" src="__PUBLIC__/common/images/face.jpg" width="30px" height="30px" />
+<img class="pull-left img-circle" alt="{$userinfo['username']}" src="{$userinfo['faceimg']}" width="30px" height="30px" />
 <div class="pull-right">推荐：{$count}人，余额￥:{$userinfo['balance']}</div>
 <div class="clearfix"></div>
 </div>
@@ -100,7 +52,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 
 
 <div class="col-md-6">
-<a href="#">
+<a href="{:U('/Home/Reward')}">
 <div class="panel panel-default">
 <div class="panel-body">
 我的酬劳
@@ -121,36 +73,21 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 </div>
 
 <!-- start详情 -->
-
 <div class="row">
+<volist name="list" id="vo">
   <div class="col-sm-6 col-md-6">
     <div class="thumbnail">
       <a href="#">
-      <img src="__PUBLIC__/common/images/1.png" alt="detal" >
+      <img src="__PUBLIC__/{$vo['cover']}" alt="detal" >
       </a>
       <div class="caption">
-        <h3>999套餐</h3>
-        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a href="#" class="btn btn-default" role="button">推荐</a> </p>
+        <h3>{$vo['title']}</h3>
+        <p>{$vo['connect']}</p>
+        <p><a href="{:U('/Home/Recommend/index',array('selectid'=>$vo['id'],'title'=>$vo['title']))}" class="btn btn-default" role="button">推荐</a> </p>
       </div>
     </div>
   </div>
-    <div class="col-sm-6 col-md-6">
-    <div class="thumbnail">
-    <a href="#">
-      <img src="__PUBLIC__/common/images/2.png" alt="detal">
-      </a>
-      <div class="caption">
-        <h3>599活动套餐</h3>
-        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a href="#" class="btn btn-default" role="button">推荐</a> </p>
-      </div>
-    </div>
-  </div>
+  </volist>
 </div>
 <!-- end详情 -->
-</div>
-</body>
-</html>
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+</block>

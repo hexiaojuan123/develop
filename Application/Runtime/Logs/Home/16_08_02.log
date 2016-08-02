@@ -1,0 +1,7 @@
+[ 2016-08-02T18:07:41+08:00 ] ::1 /develop/Home/Test
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'jihulian'@'localhost' (using password: YES)
+
+[ 2016-08-02T20:10:33+08:00 ] ::1 /develop/Home/Test
+ERR: 1054:Unknown column '' in 'field list'
+ [ SQL语句 ] : SELECT `think_customer`.`id` as `id`,`userid`,`receiveid`,`` FROM `think_customer` INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj`   
+
