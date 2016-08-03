@@ -1,0 +1,18 @@
+[ 2016-08-03T08:44:14+08:00 ] ::1 /develop/index.php?s=/Home/Test.shtml
+ERR: 1054:Unknown column 'title' in 'field list'
+ [ SQL语句 ] : SELECT `think_customer`.`id` as `id`,`userid`,`receiveid`,`title`,`username` FROM `think_customer` INNER JOIN `think_user` ON `think_user`.`id`=`think_customer`.`userid`   LIMIT 1  
+
+[ 2016-08-03T16:08:09+08:00 ] ::1 /develop/index.php?s=/Home/Test.shtml
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6256' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6256
+
+[ 2016-08-03T16:09:14+08:00 ] ::1 /develop/index.php?s=/Home/Test.shtml
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6256' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6256
+
+[ 2016-08-03T16:44:22+08:00 ] ::1 /develop/index.php?s=/Home/Jump/goodsid=/sendid=//customerid=/
+ERR: 非法操作:goodsid=
+
+[ 2016-08-03T16:44:28+08:00 ] ::1 /develop/index.php?s=/Home/Jump/goodsid=/sendid=//customerid=/
+ERR: 非法操作:goodsid=
+

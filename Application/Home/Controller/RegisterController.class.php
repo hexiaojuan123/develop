@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Common\Lib\JS_SDK;
+use Common\Lib\mobileverify;
 class RegisterController extends CommonController {
     public function index(){
         $jssdk=new JS_SDK();
@@ -13,6 +14,10 @@ class RegisterController extends CommonController {
         $realname=I('realname',null,false);
         $phone=I('Phone',null,false);
         $vecode=I('vecode',null,false);
+        $code=session('verify');
+        if($vecode!=$code){
+            $this->error('验证码错误请确认手机号');
+        }
         $redirect=I('redirect');
         $sendid=I('sendid');
         $customerid=I('customerid');
@@ -43,4 +48,17 @@ class RegisterController extends CommonController {
             
         }
     }
+    public function Verify() {
+        $phone=I('phone');
+        if(!empty($phone)){
+            $r=rand(1000, 9999);
+            $verify=new mobileverify('http://userinterface.vcomcn.com/Opration.aspx','cdjhl','lzc20160301');
+            $issend=$verify::sendVerifyCode($phone,$r);
+            $_SESSION['verify']=$r;
+            $msg=array('code'=>1,'msg'=>'发送成功','data'=>$issend);
+        }else{
+            $msg=array('code'=>0,'msg'=>'发送失败');
+        }
+        return $this->ajaxReturn($msg);
+      }
 }

@@ -25,17 +25,9 @@ class Shop
      * @return array $data 增加对应佣金的键值对
      */
     public function SaleValue($data=NULL) {
-        $data[]=array('userid'=>'1');
-        $data[]=array('userid'=>'2');
-        $data[]=array('userid'=>'3');
-        $data[]=array('userid'=>'4');
-        $arr=self::$Sale;
-        for ($i=0;$i<count($data);$i++)
+        for ($i=0;$i<2;$i++)
         {
-            if($i+1!=count($data))
-                $data[$i]['commission']=($this->Total*(self::$Sale[$i]-self::$Sale[$i+1]));
-            else
-                $data[$i]['commission']=$this->Total*(self::$Sale[$i]-self::$Sale[$i]);
+           $data[$i]['commission']=($this->Total*(self::$Sale[$i]-self::$Sale[$i+1]));
         }
         return $data;
     }

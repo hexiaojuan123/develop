@@ -28,8 +28,8 @@
 </div>
 </div>
 </if>
-
-<div class="col-md-6">
+<div class="row">
+<div class="col-xs-6 col-md-6">
 <a href="{:U('/Home/Recommend')}">
 <div class="panel panel-default">
 <div class="panel-body">
@@ -40,7 +40,7 @@
 </div>
 
 
-<div class="col-md-6">
+<div class="col-xs-6 col-md-6">
 <a href="{:U('/Home/Customer')}">
 <div class="panel panel-default">
 <div class="panel-body">
@@ -51,7 +51,7 @@
 </div>
 
 
-<div class="col-md-6">
+<div class="col-xs-6 col-md-6">
 <a href="{:U('/Home/Reward')}">
 <div class="panel panel-default">
 <div class="panel-body">
@@ -62,7 +62,7 @@
 </div>
 
 
-<div class="col-md-6">
+<div class="col-xs-6 col-md-6">
 <a href="#">
 <div class="panel panel-default">
 <div class="panel-body">
@@ -71,18 +71,18 @@
 </div>
 </a>
 </div>
-
+</div>
 <!-- start详情 -->
 <div class="row">
 <volist name="list" id="vo">
-  <div class="col-sm-6 col-md-6">
+  <div class="col-xs-6 col-md-6">
     <div class="thumbnail">
       <a href="#">
       <img src="__PUBLIC__/{$vo['cover']}" alt="detal" >
       </a>
       <div class="caption">
-        <h3>{$vo['title']}</h3>
-        <p>{$vo['connect']}</p>
+        <h4>{$vo['title']}</h4>
+        <p><small>{$vo.connect|subtext=20}</small></p>
         <p><a href="{:U('/Home/Recommend/index',array('selectid'=>$vo['id'],'title'=>$vo['title']))}" class="btn btn-default" role="button">推荐</a> </p>
       </div>
     </div>

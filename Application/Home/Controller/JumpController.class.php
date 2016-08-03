@@ -6,7 +6,13 @@ header("Content-Type: text/html; charset=utf8");
 class JumpController extends Controller {
     public function index(){
       $type=I('type')?'snsapi_userinfo':'snsapi_base';
-      $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump/'.$type;
+      $sendid=I('sendid');//获取发送者的ID
+      $goodsid=I('goodsid');//获取商品表的ID
+      $customerid=I('customerid');//获取客户表的ID
+       if(!empty($sendid)||!empty($goodsid)||!empty($customerid))
+           $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump/goodsid='.$goodsid.'/sendid=/'.$sendid.'/customerid=/'.$customerid.'/'.$type;
+       else 
+           $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump/'.$type;
       $scope=new Scope($redirect_url,$type);
       redirect($scope->triggerurl());
       exit();

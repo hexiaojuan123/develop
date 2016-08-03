@@ -16,9 +16,12 @@ class RecommendController extends CommonController {
         $data['customerphone']=I('CustomerPhone');
         $data['selectobj']=I('SelectObj');
         $data['userid']=session('uid');
-        $data['source']=1;//直接来院
+        $data['source']=1;//直接来源
         $where['customerphone']=$data['customerphone'];
         $where['userid']=$data['userid'];
+        if($data['selectobj']==0||empty($data['customername'])||empty($data['customerphone'])){
+            $this->error('请将数据添加完整');
+        }
         $res=$Customer->where($where)->find();
         if($res){
             $this->error('当前用户已在推荐列表中无需重复添加');

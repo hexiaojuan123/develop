@@ -12,101 +12,60 @@
 		<link href="/develop/Public/common/css/site.css" rel="stylesheet">
 		<!-- 样式表文件 start-->
 		
+<style>
+.wdth{
+	width:47%;
+}
+</style>
+
 		<!-- 样式表文件 end-->
 	</head>
 	<body>
      	<!-- 头文件 start-->
-    	<a href="/develop/index.php?s=/Home/Index/index">首页</a>	
+    		
    		<!-- 头文件 end-->
 		<!-- 内容页 start -->
 		<div class="container">
         
-<?php if($userinfo == null ): ?><form action="" method="get">
-<div class="panel panel-default">
-<div class="panel-body">
-<lable class="col-md-1">Likename:</lable>
-<div class="col-md-4">
-<input type="text" class="form-control" name="likename" placeholder="Likename" />
-</div>
-<lable class="col-md-1">Phone:</lable>
-<div class="col-md-4">
-<input type="text" class="form-control" name="phone" placeholder="Phone"/>
-</div>
-<div class="col-md-2">
-<button type="submit" class="btn btn-default btn-balck">注册</button>
-</div>
-</div>
-</div>
-</form>
-<?php else: ?>
-<div class="panel panel-default">
-<div class="panel-body">
-<div class="pull-left"><?php echo ($userinfo['username']); ?></div>
-<img class="pull-left img-circle" alt="<?php echo ($userinfo['username']); ?>" src="<?php echo ($userinfo['faceimg']); ?>" width="30px" height="30px" />
-<div class="pull-right">推荐：<?php echo ($count); ?>人，余额￥:<?php echo ($userinfo['balance']); ?></div>
-<div class="clearfix"></div>
-</div>
-</div><?php endif; ?>
-
-<div class="col-md-6">
-<a href="<?php echo U('/Home/Recommend');?>">
-<div class="panel panel-default">
-<div class="panel-body">
-我要推荐
-</div>
-</div>
-</a>
-</div>
-
-
-<div class="col-md-6">
-<a href="<?php echo U('/Home/Customer');?>">
-<div class="panel panel-default">
-<div class="panel-body">
-我的客户<span class="badge"><?php echo ($count); ?></span>
-</div>
-</div>
-</a>
-</div>
-
-
-<div class="col-md-6">
-<a href="<?php echo U('/Home/Reward');?>">
-<div class="panel panel-default">
-<div class="panel-body">
-我的酬劳
-</div>
-</div>
-</a>
-</div>
-
-
-<div class="col-md-6">
-<a href="#">
-<div class="panel panel-default">
-<div class="panel-body">
-活动规则
-</div>
-</div>
-</a>
-</div>
-
-<!-- start详情 -->
 <div class="row">
-<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="col-sm-6 col-md-6">
-    <div class="thumbnail">
-      <a href="#">
-      <img src="/develop/Public/<?php echo ($vo['cover']); ?>" alt="detal" >
-      </a>
-      <div class="caption">
-        <h3><?php echo ($vo['title']); ?></h3>
-        <p><?php echo ($vo['connect']); ?></p>
-        <p><a href="<?php echo U('/Home/Recommend/index',array('selectid'=>$vo['id'],'title'=>$vo['title']));?>" class="btn btn-default" role="button">推荐</a> </p>
-      </div>
+<ul class="nav nav-pills" role="tablist">
+    <li role="presentation" class="active wdth pull-left"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">可提现 80元</a></li>
+    <li role="presentation" class="wdth pull-right"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">已提现 2400元</a></li>
+    <li class="clearfix"></li>
+</ul>
+ <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="home">
+    <h3 style="text-align:center">佣金明细</h3>
+    <div class="panel panel-default">
+  <div class="panel-body">
+   <div class="list">
+    <div class="pull-left">
+    <h4 style="margin: 0 auto;">成交佣金收入</h4>
+    <div class="pull-left"><small>2012-07-06 13:01</small></div>
     </div>
-  </div><?php endforeach; endif; else: echo "" ;endif; ?>
+    <div class="pull-right"><h4>100元</h4></div>
+    <div class="clearfix"></div>
+   </div>
+  </div>
 </div>
-<!-- end详情 -->
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="profile">
+    <h3 style="text-align:center">提现明细</h3>
+        <div class="panel panel-default">
+  <div class="panel-body">
+   <div class="list">
+    <div class="pull-left">
+    <h4 style="margin: 0 auto;">提现佣金</h4>
+    <div class="pull-left"><small>2016-07-06 13:01</small></div>
+    </div>
+    <div class="pull-right"><h4>90元</h4></div>
+    <div class="clearfix"></div>
+   </div>
+  </div>
+</div>
+    </div>
+    </div>
+    </div>
 
         </div>
         <!-- 内容页 end -->

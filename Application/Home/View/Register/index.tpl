@@ -20,14 +20,15 @@
 <input type="text" id="Phone" name="Phone" class="form-control" value="" placeholder="Phone"/>
 </div>
 <div class="col-sm-4 col-md-4" style="padding:0;">
-<label for="vecode">验证码：</label>
+<label for="vecode">验证码：</label><button type="button" class="btn btn-default btn-xs sendmobile">发送验证码</button>
 <input type="text" id="vecode" name="vecode" class="form-control" value="" placeholder="Vecode"/>
 </div>
 <div class="clearfix"></div>
 </div>
 <div class="form-group">
-<input name="uid" value="{:I('get.uid')}" hidden />
-<input name="orid" value="{:I('get.orid')}" hidden />
+<input name="sendid" value="{:I('get.sendid')}" hidden />
+<input name="goodsid" value="{:I('get.goodsid')}" hidden />
+<input name="customerid" value="{:I('get.customerid')}" hidden />
 <input name="redirect" value="{:I('get.redirect')}" hidden />
 <button type="submit" class="btn btn-default btn-block">注册</button>
 </div>
@@ -38,6 +39,62 @@
 <script>
     $(function(){
     	$('#realname').focus();
+        $('.sendmobile').click(function(){
+        	event.stopPropagation();
+        	$('.sendmobile').button('loading');
+        	$phone=$('input[name=Phone]').val();
+        	if($phone==''){
+        		alert('请输入您的手机号');
+        		$('.sendmobile').button('reset');
+        	}else{
+        		mobileVerify($phone);
+        	}
+        });
     });
+    var c=60;
+    var t;
+    function timedCount()
+    {
+    	$('.sendmobile').button('loading');
+    	c=c-1;
+    	if(c<=0){
+    		clearTimeout(t);
+        	$('.sendmobile').button('reset');
+        	c=60;
+        	return false;
+    	}
+    	else{
+    		$('.sendmobile').text(c+'秒后重新发送');
+    	}
+    	t=setTimeout("timedCount()",1000);
+    }
+    function validate($key){
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if(!myreg.test($key))
+        {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function mobileVerify(phone){
+    	$.ajax({
+    		type:'post',
+    		url:'{:U("Verify")}',
+    		data:{'phone':phone},
+    		beforeSend:function(){
+    			console.log(phone);
+    		},
+    		success:function(data){
+    			console.log(data);
+    			if(data.data==00){
+    				console.log(data);
+    				timedCount();
+    			}else{
+    				alert('短信发送失败，请稍后在试');
+    			}
+    		}
+    	});
+    }
 </script>
 </block>

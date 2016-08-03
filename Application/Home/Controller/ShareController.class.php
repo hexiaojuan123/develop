@@ -14,6 +14,7 @@ class ShareController extends Controller {
         $res=$order->where($condition)->select();
         $this->assign('list',$res);
         $this->display();
+       
     }
     public function haveintent() {
         $sendid=I('sendid');//获取发送者的ID

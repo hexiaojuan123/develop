@@ -20,9 +20,18 @@
 <div id="footerbtn" class="row">
 <div class="col-xs-12 col-md-12" style="padding: 0;">
     <div class="btn-group btn-group-justified" role="group">
-        <a type="button" class="btn btn-warning btn-lg btn-block" role="button">分享</a>
+        <a type="button" class="btn btn-warning btn-lg btn-block" id="share" role="button">分享</a>
     </div>
 </div>
 
 </div>
+</block>
+<block name="js">
+<script>
+	$(function(){
+		$('#share').click(function(){
+			alert('请点击微信右上角分享按钮进行分享');
+		});
+	});
+</script>
 </block>
