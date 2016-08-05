@@ -25,6 +25,7 @@ class Shop
      * @return array $data 增加对应佣金的键值对
      */
     public function SaleValue($data=NULL) {
+        //国家规定发展下级最多三级
         for ($i=0;$i<2;$i++)
         {
            $data[$i]['commission']=($this->Total*(self::$Sale[$i]-self::$Sale[$i+1]));
