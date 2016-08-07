@@ -8,7 +8,7 @@
 <th>状态</th>
 </tr></thead>
 <tbody>
-<volist name="list" id="vo">
+<volist name="list" id="vo" empty="当前无数据">
 <tr class="listtable"><th hidden>{$vo['id']}</th><td>{$vo['customername']}</td><td>{$vo['customerphone']}</td><td>{$vo['status']}</td></tr>
 </volist>
 </tbody>
