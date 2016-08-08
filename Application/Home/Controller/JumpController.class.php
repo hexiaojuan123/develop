@@ -36,7 +36,7 @@ class JumpController extends Controller {
                     if($selsect_openid['realname']!==null){
                         redirect(__APP__.'/Home/Index');
                     }else{
-                        redirect(__APP__.'/Home/Register');
+                        redirect(__APP__.'/Home/Index');
                     }
                     exit();
                 }else{
@@ -72,7 +72,7 @@ class JumpController extends Controller {
                     $sqlres=$User->add($datainfo);
                     if($sqlres){
                         session('uid',$sqlres);
-                        redirect(__APP__.'/Home/Register');
+                        redirect(__APP__.'/Home/Index');
                         exit();
                     }else{
                         $this->error('数据存储失败请稍后在试');

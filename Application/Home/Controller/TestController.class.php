@@ -6,7 +6,7 @@ class TestController extends Controller {
     private $datalist=array();
     private $num=0;
     public function index(){
-        $Sale=array(1,0.85,0.8,0.75,0.75,0.75,0.75,0.75);//设置每一级的佣金
+        $Sale=array(0.05,0.04,0.01);//设置每一级的佣金
         //$goodsid=I('goodsid');//获取商品ID
         $goodsid=2;//获取商品ID
         $customerid=I('customerid');
@@ -19,7 +19,7 @@ class TestController extends Controller {
         $shop=new Shop($price);//传入商品的总价
         $shop::$Sale=$Sale;//将佣金折扣传入shop类
         $this->getiu($uid);
-        $sh=$shop->SaleValue($this->datalist);
+        $s h=$shop->SaleValue($this->datalist);
         $User=D('User');
         $commission_log=M('CommissionLog');
         $User->startTrans();
@@ -46,21 +46,30 @@ class TestController extends Controller {
         var_dump($sh);
         echo '</pre>';
     }
+    /**
+     * 递归 获取对应发送者的上级
+     * @param string $sendid 发送者ID
+     * @return array|bool $data 上级
+     */
     public function getiu($sendid=NULL){
         $customer=M('customer');
         $Orderjoin='INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj` ';
         $Userjoin='INNER JOIN `think_user` ON `think_user`.`id`=`think_customer`.`userid` ';
         $field='`think_customer`.`id` as `id`,`userid`,`receiveid`,`title`,`realname`,`think_order`.`id` as goodsid ';
-            if(!empty($sendid))
+            if(!empty($sendid)){
                 $condition['receiveid']=$sendid;
+            }
             $res=$customer->where($condition)->field($field)->join($Userjoin)->join($Orderjoin)->find();
             if($res){
+                if($sendid==$res['userid']){
+                    return false;//如果发送者和接收者相等 直接跳出循环
+                }
                 $sendid=$res['userid'];
                 array_push($this->datalist, $res);
                 $this->getiu($sendid);
-        }else{
-            return false;
-        }
+            }else{
+                return false;
+            }
     }
     /**
      * 查找商品的价格

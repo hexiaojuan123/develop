@@ -26,9 +26,10 @@ class Shop
      */
     public function SaleValue($data=NULL) {
         //国家规定发展下级最多三级
+        $count=count($data);//获取上级人数
         for ($i=0;$i<2;$i++)
-        {
-           $data[$i]['commission']=($this->Total*(self::$Sale[$i]-self::$Sale[$i+1]));
+        { 
+           $data[$i]['commission']=$this->Total*self::$Sale[$i];
         }
         return $data;
     }

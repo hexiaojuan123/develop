@@ -38,18 +38,19 @@ class CommonController extends Controller {
                 redirect(__APP__.'/Home/Jump');
             else 
                 redirect(__APP__.'/Home/Jump/goodsid='.$goodsid.'/sendid=/'.$sendid.'/customerid=/'.$customerid);
-        }else {
+        }
+        else {
             self::$OPENID=session('openid');
             self::$UID=session('uid');
-            $User=M('User');
-            $param['id']=self::$UID;
-            $res=$User->where($param)->find();
-            if($res['realname']==null){
-                if(CONTROLLER_NAME!='Register'){
-                    $this->success('请先补全信息',__APP__.'/Home/Register');
-                    exit();
-                }
-            }
+//             $User=M('User');
+//             $param['id']=self::$UID;
+//             $res=$User->where($param)->find();
+//             if($res['realname']==null){
+//                 if(CONTROLLER_NAME!='Register'){
+//                     $this->success('请先补全信息',__APP__.'/Home/Register');
+//                     exit();
+//                 }
+//             }
         }
     }
 }
