@@ -30,7 +30,7 @@
 </if>
 <div class="row">
 <div class="col-xs-6 col-md-6">
-<a href="{:U('/Home/Recommend')}">
+<a href="{:U('/Home/Sendshare')}">
 <div class="panel panel-default">
 <div class="panel-body">
 我要推荐
@@ -76,14 +76,13 @@
 <div class="row">
 <volist name="list" id="vo">
   <div class="col-xs-6 col-md-6">
-    <div class="thumbnail">
-      <a href="#">
+    <div class="thumbnail" style="margin:0 auto;">
+      <a href="{:U('/Home/Sendshare/index',array('gooodsid'=>$vo['id']))}" >
       <img src="__PUBLIC__/{$vo['cover']}" alt="detal" >
       </a>
       <div class="caption">
-        <h4>{$vo['title']}</h4>
+        <h4 style="margin:0 auto;">{$vo['title']}</h4>
         <p><small>{$vo.connect|subtext=20}</small></p>
-        <p><a href="{:U('/Home/Recommend/index',array('selectid'=>$vo['id'],'title'=>$vo['title']))}" class="btn btn-default" role="button">推荐</a> </p>
       </div>
     </div>
   </div>

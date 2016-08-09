@@ -19,6 +19,7 @@
     	<include file="public/header" />	
    		<!-- 头文件 end-->
 		<!-- 内容页 start -->
+		<block name="heder-body"></block>
 		<div class="container">
         <block name="main"></block>
         </div>
@@ -118,6 +119,7 @@ wx.ready(function () {
         }
       });
 });
+    
     </script>
     <!-- 微信分享js end-->
     </if>

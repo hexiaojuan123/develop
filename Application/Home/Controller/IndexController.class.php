@@ -17,7 +17,7 @@ class IndexController extends CommonController {
         $join=' RIGHT JOIN `think_customer` ON `think_customer`.`userid`=`think_user`.`id` ';
         $count=$user->where($where)->join($join)->count();
         $condition['display']=2;
-        $list=$order->where($condition)->order('id desc')->select();
+        $list=$order->where($condition)->order('id desc')->limit(4)->select();
         if($list){
             $this->assign('list',$list);
         }

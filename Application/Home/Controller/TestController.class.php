@@ -19,7 +19,7 @@ class TestController extends Controller {
         $shop=new Shop($price);//传入商品的总价
         $shop::$Sale=$Sale;//将佣金折扣传入shop类
         $this->getiu($uid);
-        $s h=$shop->SaleValue($this->datalist);
+        $sh=$shop->SaleValue($this->datalist);
         $User=D('User');
         $commission_log=M('CommissionLog');
         $User->startTrans();
