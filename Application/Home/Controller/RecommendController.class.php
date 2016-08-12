@@ -1,8 +1,12 @@
 <?php
 namespace Home\Controller;
+use Common\Lib\JS_SDK;
 class RecommendController extends CommonController {
 
     public function index(){
+        $jssdk=new JS_SDK();
+        $this->assign('sh',$jssdk->sharedata());
+        $this->assign('appid',$jssdk->getAPPID());
         $order=M('Order');
         $param['display']=2;//加载所需显示的商品
         $res=$order->where($param)->select();

@@ -6,6 +6,7 @@ class IndexController extends CommonController {
         $jssdk=new JS_SDK();
         $this->assign('sh',$jssdk->sharedata());
         $this->assign('appid',$jssdk->getAPPID());
+        $this->assign('showshare',2);
         $user=M('user');
         $order=M('Order');
         $where['openid']=self::$OPENID;

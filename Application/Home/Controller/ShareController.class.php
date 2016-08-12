@@ -18,7 +18,6 @@ class ShareController extends Controller {
     public function haveintent() {
         $sendid=I('sendid');//获取发送者的ID
         $goodsid=I('goodsid');//获取商品表的ID
-        $customerid=I('customerid');//获取客户表的ID
         $uid=session('uid');//获取用户uid
         $openid=session('openid');//获取用户的openid
         if(empty($sendid)||empty($goodsid)){
@@ -30,23 +29,20 @@ class ShareController extends Controller {
         $where['openid']=$openid;
         $field='`id`,`phone`,`openid`,`username`,`realname`';
         $isuser=$User->where($where)->field($field)->find();//获取用户的基本信息
-        if(!$isuser||empty($isuser['realname'])){
-           $this->success('请先注册',__APP__.'/Home/Register/index/redirect/share/sendid/'.$sendid.'/customerid/'.$customerid.'/goodsid/'.$goodsid.'.shtml');
-           return false;
-        }else{
         $Customer=D('Customer');
+        $Order=M('order');
         $Customer->startTrans();//开始事务
         $data['status']=2;//有意向
         $data['receiveid']=$uid;//接收者的ID
-        $condition['think_customer.id']=$customerid;//客户表的ID
         $condition['think_customer.userid']=$sendid;//用户ID
-        $condition['think_customer.customerphone']=$isuser['phone'];//用户的手机号
+        $condition['think_customer.']=$isuser['phone'];//用户的手机号
+        $wheregeturl['id']=$goodsid;
         $join='INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj` ';
-        $resurl=$Customer->field('`think_order`.`id`')->join($join)->where($condition)->find();
-        $geturl=$Customer->field('`url`')->join($join)->where('think_customer.id='.$customerid)->find();//获取需要跳转的url
-        $url='&send='.$sendid.'&receive='.$uid.'&goodsid='.$goodsid.'&customer='.$customerid;
+        $resurl=FALSE;
+        $geturl=$Order->field('`url`')->where($wheregeturl)->find();//获取需要跳转的url
+        $url='&send='.$sendid.'&receive='.$uid.'&goodsid='.$goodsid;
         if($resurl){
-            //当客户表中有该用户对应手机号且接收者的手机号码匹配
+            //当客户表中有该用户对应手机号且接收者的ID与自己匹配
             if(!$Customer->create($data)){
                 $this->error($Customer->getError());
             }else{
@@ -67,15 +63,13 @@ class ShareController extends Controller {
             unset($condition);//清除condition
             $data['status']=2;//有意向
             $data['receiveid']=$uid;
-            $data['customerphone']=$isuser['phone'];
-            $data['customername']=$isuser['realname'];
             $data['userid']=$sendid;
             $data['selectobj']=$goodsid;
             $data['source']=2;
-            $condition['customerphone']=$isuser['phone'];
             $condition['receiveid']=$uid;
             $condition['userid']=$sendid;
             $condition['selectobj']=$goodsid;
+            $condition['status']=2;
             $iscustomer=$Customer->where($condition)->find();
             if($iscustomer){
                 //判断如果存在该用户的推荐意向将无需重复添加客户信息
@@ -94,7 +88,6 @@ class ShareController extends Controller {
                     }
                 }
             }
-          }
        }
       }else{
         //前往注册页面

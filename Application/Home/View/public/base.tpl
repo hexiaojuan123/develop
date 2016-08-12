@@ -3,18 +3,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="screen-orientation" content="portrait">
 		<!-- 标题 start-->
     	<title><block name="title">极互联</block></title>
     	<!-- 标题 end-->
 		<!--    <link rel="shortcut icon"href="__PUBLIC__/img/Common/admin.ico">-->     
 		<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
 		<link href="__PUBLIC__/common/css/site.css" rel="stylesheet">
+		<!-- drawer.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.0/css/drawer.min.css">
+        <!-- jquery & iScroll -->
+        <!-- weui start -->
+        <link rel="stylesheet" href="__PUBLIC__/common/weui/css/weui.min.css">
+        <!-- weui end-->
 		<!-- 样式表文件 start-->
 		<block name="css"></block>
 		<!-- 样式表文件 end-->
 	</head>
-	<body>
+	<body class="drawer drawer--left">
+	   <main role="main">
      	<!-- 头文件 start-->
     	<include file="public/header" />	
    		<!-- 头文件 end-->
@@ -27,12 +36,43 @@
         <!-- 脚文件 start-->
         <include file="public/footer" />	
 		<!-- 脚文件 end-->
+		</main>
 	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.0/js/drawer.min.js"></script>
+    <!-- weui js start -->
+     <script src="__PUBLIC__/common/weui/js/zepto.min.js"></script>
+     <script src="__PUBLIC__/common/weui/js/router.min.js"></script>
+     
+    <!-- weui js end -->
     <if condition="$appid neq null">
     <!-- 微信分享js start-->
     <script>
+    $(function(){
+    	//菜单栏
+   	 $('.drawer').drawer({
+   		 class: {
+    		    nav: 'drawer-nav',
+    		    toggle: 'drawer-toggle',
+    		    overlay: 'drawer-overlay',
+    		    open: 'drawer-open',
+    		    close: 'drawer-close',
+    		    dropdown: 'drawer-dropdown'
+    		  },
+    		  iscroll: {
+  			    // Configuring the iScroll
+  			    // https://github.com/cubiq/iscroll#configuring-the-iscroll
+  			    mouseWheel: true,
+  			    preventDefault: false
+  			  },
+  			  showOverlay: true
+   	   	 });
+   	 //菜单栏
+        });
+    
     wx.config({
     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: '{$appid}', // 必填，公众号的唯一标识
@@ -76,7 +116,7 @@
 });
 $shareurl=location.href.split('#')[0];
 wx.ready(function () {
-	//wx.hideOptionMenu();
+	<neq name="showshare" value="2">wx.hideOptionMenu();<else />wx.showOptionMenu();</neq>
     var shareData = {
     title: '全名经纪人',//分享的标题
     desc: '极互联-人人都能当经纪人',//分享的描述
@@ -93,7 +133,10 @@ wx.ready(function () {
         },
         success: function (res) {
           //window.location.href =adurl;
-            alert('操作成功');
+        	$('#toast').show();
+         	 setTimeout(function () {
+               $('#toast').hide();
+           }, 2000); 
         },
         cancel: function (res) {
         },
@@ -111,6 +154,10 @@ wx.ready(function () {
         },
         success: function (res) {
             //window.location.href =adurl;
+        	$('#toast').show();
+           	 setTimeout(function () {
+                 $('#toast').hide();
+             }, 2000);
         },
         cancel: function (res) {
         },

@@ -5,32 +5,40 @@
 <img class="img-circle" alt="{$userinfo['username']}" src="{$userinfo['faceimg']}" width="50px" height="50px" />
 </div>
 <div class="col-md-12">
-<input type="text" value="{$userinfo['faceimg']}" name="faceimg" hidden/>
-<div class="form-group">
-<label for="nickname">昵称：</label>
-<input type="text" id="nickname" name="nickname" value="{$userinfo['username']}" class="form-control" value="" placeholder="nickname" disabled/>
-</div>
 <div class="form-group">
 <label for="realname">真实姓名：</label>
-<input autofocus type="text" id="realname" name="realname" class="form-control" value="" placeholder="Realname" />
+<input autofocus type="text" id="realname" name="realname" class="form-control" value="" placeholder="真实名称" />
 </div>
 <div class="form-group">
-<div class="col-sm-8 col-md-8" style="padding:0;">
+<div class="row">
+<label class="col-xs-12" for="realname">验证码：</label>
+<div class="col-xs-8"> 
+<input type="text" id="imgcode" maxlength="4" name="imgcode" class="form-control" value="" placeholder="图片验证码" />
+</div>
+<div class="col-xs-4" style="margin: 0 auto;">
+<img src="{:U('/Home/Verify/index')}" alt="verifycode" style="height: 2.3em;width: 6.5em;" id="img-code" />
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<div class="col-xs-12">
 <label for="Phone">手机号：</label>
-<input type="text" id="Phone" name="Phone" class="form-control" value="" placeholder="Phone"/>
+<button type="button" class="btn btn-default btn-xs sendmobile">发送验证码</button>
 </div>
-<div class="col-sm-4 col-md-4" style="padding:0;">
-<label for="vecode">验证码：</label><button type="button" class="btn btn-default btn-xs sendmobile">发送验证码</button>
-<input type="text" id="vecode" name="vecode" class="form-control" value="" placeholder="Vecode"/>
+<div class="col-xs-8">
+<input type="text" id="Phone" name="Phone" class="form-control" value="" placeholder="手机号"/>
 </div>
-<div class="clearfix"></div>
+<div class="col-xs-4 col-sm-4 col-md-4" style="margin: 0 auto;">
+<input type="text" id="vecode" maxlength="4" name="vecode" class="form-control" value="" placeholder="验证码"/>
+</div>
+</div>
 </div>
 <div class="form-group">
-<input name="sendid" value="{:I('get.sendid')}" hidden />
-<input name="goodsid" value="{:I('get.goodsid')}" hidden />
-<input name="customerid" value="{:I('get.customerid')}" hidden />
-<input name="redirect" value="{:I('get.redirect')}" hidden />
-<button type="submit" class="btn btn-default btn-block">注册</button>
+<button type="submit" id="rebtn" class="btn btn-default btn-block">注册</button>
+</div>
+<div class="error-text">
+<p style="text-align: center;"><small></small></p>
 </div>
 </div>
 </form>
@@ -39,6 +47,15 @@
 <script>
     $(function(){
     	$('#realname').focus();
+    	$('input[name=Phone]').keyup(function(){
+    		if(validate($(this).val())==false){
+				$('.error-text p small').text('手机号格式不正确');
+				$('#rebtn').button('loading');
+            }else{
+            	$('.error-text p small').text('');
+            	$('#rebtn').button('reset');
+            }
+        });
         $('.sendmobile').click(function(){
         	event.stopPropagation();
         	$('.sendmobile').button('loading');
@@ -49,6 +66,9 @@
         	}else{
         		mobileVerify($phone);
         	}
+        });
+        $('#img-code').click(function(){
+        	ref();
         });
     });
     var c=60;
@@ -96,5 +116,8 @@
     		}
     	});
     }
+    function ref(){
+    	 $('#img-code').attr("src",'{:U('/Home/Verify/Index/index')}?'+Math.random());
+    } 
 </script>
 </block>

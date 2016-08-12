@@ -1,18 +1,21 @@
 <extend name="public/base" />
 <block name="main">
+<h1 style="text-align: center;">我的客户</h1>
 <table class="table table-hover">
 <thead>
 <tr>
-<th>姓名</th>
-<th>手机号</th>
+<th>头像</th>
+<th>昵称</th>
+<th>时间</th>
 <th>状态</th>
 </tr></thead>
 <tbody>
 <volist name="list" id="vo" empty="当前无数据">
-<tr class="listtable"><th hidden>{$vo['id']}</th><td>{$vo['customername']}</td><td>{$vo['customerphone']}</td><td>{$vo['status']}</td></tr>
+<tr class="listtable"><th hidden>{$vo['id']}</th><td><img src="{$vo['info']['faceimg']}" alt="{$vo['info']['username']}" width="20px" height="20px" /></td><td>{$vo['info']['username']|subtext=8}</td><td>{$vo['createtime']}</td><td>{$vo['status']}</td></tr>
 </volist>
 </tbody>
 </table>
+<div style="text-align:center;">{$page}</div>
 <input id="uid" type="text" value=""  hidden />
 <input id="sendid" type="text" value="" hidden />
 <!-- Large modal -->
@@ -29,11 +32,11 @@
         </thead>
         <tbody>
         <tr>
-        <th>姓名</th>
+        <th>头像</th>
         <td></td>
         </tr>
         <tr>
-        <th>电话</th>
+        <th>姓名</th>
         <td></td>
         </tr>
         <tr>
@@ -58,6 +61,27 @@
     </div>
   </div>
 </div>
+<div id="loadingToast" class="weui_loading_toast" style="display:none;">
+   <div class="weui_mask_transparent" style="z-index:1041;"></div>
+   <div class="weui_toast" style="z-index:1043;">
+       <div class="weui_loading">
+           <!-- :) -->
+           <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+           <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+       </div>
+       <p class="weui_toast_content">数据加载中</p>
+   </div>
+</div>
 </block>
 <block name="js">
 <script>
@@ -79,20 +103,22 @@ function getdetail(id){
 		data:{'id':id},
 		url:'{:U("getinfo")}',
 		beforeSend:function(){
-			console.log(id);
+			$('#loadingToast').show();
 		},
 		success:function(data){
 			console.log(data);
 			datalist=data;
 			$('#uid').val(data['id']);
 			$('#sendid').val(data['userid']);
-			$('#detailtale').find('tr').eq(0).children('td').empty().text(data['customername']);
-			$('#detailtale').find('tr').eq(1).children('td').empty().text(data['customerphone']);
+			$('#detailtale').find('tr').eq(0).children('td').empty().html('<img width="30px" height="30px" src="'+data['faceimg']+'" />');
+			$('#detailtale').find('tr').eq(1).children('td').empty().text(data['username']);
 			$('#detailtale').find('tr').eq(2).children('td').empty().text(data['title']);
 			$('#detailtale').find('tr').eq(3).children('td').empty().text(data['createtime']);
 			$('#detailtale').find('tr').eq(4).children('td').empty().html(data['status']);
+		},
+		complete:function() {
+			$('#loadingToast').hide();
 		}
-		
 	});
 }
 </script>

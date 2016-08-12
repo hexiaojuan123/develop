@@ -28,8 +28,13 @@ class Shop
         //国家规定发展下级最多三级
         $count=count($data);//获取上级人数
         for ($i=0;$i<2;$i++)
-        { 
-           $data[$i]['commission']=$this->Total*self::$Sale[$i];
+        {   if($count==1){
+                $data[$i]['commission']=$this->Total*self::$Sale[0];
+                break;
+            }
+            else{
+                $data[$i]['commission']=$this->Total*self::$Sale[$i+1];
+            }
         }
         return $data;
     }

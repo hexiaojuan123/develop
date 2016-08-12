@@ -2,16 +2,17 @@
 namespace Home\Controller;
 use Think\Controller;
 use Common\Lib\Shop;
+use Common\Lib\Rebbag\WXHongBao;
 class TestController extends Controller {
     private $datalist=array();
-    private $num=0;
+    private static $num=0;
     public function index(){
         $Sale=array(0.05,0.04,0.01);//设置每一级的佣金
         //$goodsid=I('goodsid');//获取商品ID
         $goodsid=2;//获取商品ID
         $customerid=I('customerid');
         $sendid=I('sendid');
-        $uid='6259';
+        $uid='6267';
         $price=$this->FindGoodsPrice($goodsid);
         if(!$price){
             $this->error('获取商品总价失败');
@@ -19,6 +20,9 @@ class TestController extends Controller {
         $shop=new Shop($price);//传入商品的总价
         $shop::$Sale=$Sale;//将佣金折扣传入shop类
         $this->getiu($uid);
+        if(empty($this->datalist)){
+            $this->error('获取关键数据失败,请联系管理人员进行处理');
+        }
         $sh=$shop->SaleValue($this->datalist);
         $User=D('User');
         $commission_log=M('CommissionLog');
@@ -30,6 +34,7 @@ class TestController extends Controller {
             $data['commission']=$val['commission'];
             $data['goodsid']=$val['goodsid'];
             $data['realname']=$val['realname'];
+            $data['username']=$val['username'];
             $data['customerid']=$val['id'];
             $condition['id']=$val['userid'];
             $res=$User->where($condition)->setInc('balance',$val['commission']);
@@ -52,10 +57,13 @@ class TestController extends Controller {
      * @return array|bool $data 上级
      */
     public function getiu($sendid=NULL){
+        if(self::$num>1){
+            return false;
+        }
         $customer=M('customer');
         $Orderjoin='INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj` ';
         $Userjoin='INNER JOIN `think_user` ON `think_user`.`id`=`think_customer`.`userid` ';
-        $field='`think_customer`.`id` as `id`,`userid`,`receiveid`,`title`,`realname`,`think_order`.`id` as goodsid ';
+        $field='`username`,`think_customer`.`id` as `id`,`userid`,`receiveid`,`title`,`realname`,`think_order`.`id` as goodsid ';
             if(!empty($sendid)){
                 $condition['receiveid']=$sendid;
             }
@@ -66,6 +74,7 @@ class TestController extends Controller {
                 }
                 $sendid=$res['userid'];
                 array_push($this->datalist, $res);
+                self::$num=self::$num+1;
                 $this->getiu($sendid);
             }else{
                 return false;
@@ -85,6 +94,27 @@ class TestController extends Controller {
             return $price['price'];
         }else {
             return false;
+        }
+    }
+    public function hh() {
+//         $ar=new ArrayToXML();
+//         $a['name']='彭勃';
+//         $a['sex']='男';
+//         $a['year']=12;
+//         $a['remear']='哈哈哈';
+//         $a['info']['like']='link';
+//         $xml=$ar->toXml($a);
+//         var_dump($xml);
+        $money=10;//单位是分
+        //发送红包
+        $hongbao=new WXHongBao();
+        $gznowhb=$hongbao->newhb('oGYnqt8d8--axLoPtfBaOVX8cUxk',$money);
+        $fsjg=$hongbao->send();
+        $content=$hongbao->error();
+        if($fsjg!='1'){
+            echo '系统繁忙!';
+        }else{
+            echo '已经为您准备上红包，请笑纳！';//正式使用把最后的删除
         }
     }
 }

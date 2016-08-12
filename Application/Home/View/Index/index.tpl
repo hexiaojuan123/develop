@@ -21,16 +21,16 @@
 <else />
 <div class="panel panel-default">
 <div class="panel-body">
-<div class="pull-left">{$userinfo['username']}</div>
 <img class="pull-left img-circle" alt="{$userinfo['username']}" src="{$userinfo['faceimg']}" width="30px" height="30px" />
-<div class="pull-right">推荐：{$count}人，余额￥:{$userinfo['balance']}</div>
+<div class="pull-left" style="line-height: 30px;">{$userinfo['username']}</div>
+<div class="pull-right" style="line-height: 30px;">推荐：{$count}人  余额￥:{$userinfo['balance']}</div>
 <div class="clearfix"></div>
 </div>
 </div>
 </if>
 <div class="row">
 <div class="col-xs-6 col-md-6">
-<a href="{:U('/Home/Sendshare')}">
+<a href="{:U('/Home/Sharelist')}">
 <div class="panel panel-default">
 <div class="panel-body">
 我要推荐
@@ -77,7 +77,7 @@
 <volist name="list" id="vo">
   <div class="col-xs-6 col-md-6">
     <div class="thumbnail" style="margin:0 auto;">
-      <a href="{:U('/Home/Sendshare/index',array('gooodsid'=>$vo['id']))}" >
+      <a href="{:U('/Home/Sendshare/index',array('goodsid'=>$vo['id']))}" >
       <img src="__PUBLIC__/{$vo['cover']}" alt="detal" >
       </a>
       <div class="caption">

@@ -1,0 +1,32 @@
+[ 2016-08-09T09:05:53+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:07:29+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:11:20+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:11:23+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:11:48+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:12:44+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:13:11+08:00 ] ::1 /develop/Home/Test
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id` = 6266' at line 1
+ [ SQL语句 ] : UPDATE `think_user` SET `balance`=balance+ WHERE `id` = 6266
+
+[ 2016-08-09T09:26:58+08:00 ] ::1 /develop/Home/Test
+ERR: 1146:Table 'jihulian.username' doesn't exist
+ [ SQL语句 ] : SELECT `think_customer`.`id` as `id`,`userid`,`receiveid`,`title`,`realname`,`think_order`.`id` as goodsid FROM `think_customer` INNER JOIN `think_user` ON `think_user`.`id`=`think_customer`.`userid`  INNER JOIN `think_order` ON `think_order`.`id`=`think_customer`.`selectobj`,`username`   WHERE `receiveid` = '6267' LIMIT 1  
+
