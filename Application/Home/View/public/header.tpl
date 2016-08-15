@@ -27,6 +27,11 @@
         </a>
         </li>
         <li class="list-group-item" style="text-align: center;">
+        <a href="__APP__/Home/Withdraw/index" style="color:#000;">
+        <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> 提现
+        </a>
+        </li>
+        <li class="list-group-item" style="text-align: center;">
         <a href="#" style="color:#000;">
         <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 说明
         </a>

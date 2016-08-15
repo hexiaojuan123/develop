@@ -1,0 +1,18 @@
+<xml>
+            <sign>997E05DCD9BA6FCE20D483E5328D4D45</sign> 
+            <mch_billno>1291394101201608156699186206</mch_billno> 
+            <mch_id>1291394101</mch_id> 
+            <wxappid>wx04312878011613e9</wxappid> 
+            <nick_name><![CDATA[极互联]]></nick_name> 
+            <send_name><![CDATA[极互联]]></send_name> 
+            <re_openid>oGYnqt8d8--axLoPtfBaOVX8cUxk</re_openid> 
+            <total_amount>100</total_amount> 
+            <min_value>100</min_value> 
+            <max_value>100</max_value> 
+            <total_num>1</total_num> 
+            <wishing><![CDATA[极互联恭祝您新年快乐]]></wishing> 
+            <client_ip><![CDATA[211.137.100.91]]></client_ip> 
+            <act_name><![CDATA[2016年新年红包]]></act_name> 
+            <remark><![CDATA[新年红包]]></remark>             
+            <nonce_str>826EFB4E8A3A83E84EEEDD533F4FC81E</nonce_str>
+            </xml>

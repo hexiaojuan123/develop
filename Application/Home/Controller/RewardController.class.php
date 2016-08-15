@@ -12,7 +12,7 @@ class RewardController extends CommonController {
         $User=M('User');
         $price=$User->where($ucondition)->find();
         $count=$commission_log->where($condition)->count();
-        $Page=new \Think\Page($count,10);
+        $Page=new \Think\Page($count,5);
         $Page->lastSuffix=false;
         $Page->setConfig('first', '首页');
         $Page->setConfig('last', '末页');

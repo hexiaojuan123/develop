@@ -1,11 +1,12 @@
 <?php
 
 namespace Common\Lib\Rebbag;
+use Common\Lib\WX;
 //2016 年 2月 1日 开始的用户 
-class WXHongBao {
+class WXHongBao extends WX{
     
     private $mch_id = "1291394101";//商户ID写死
-    private $wxappid = "wx04312878011613e9";//微信公众号，写死
+    private $wxappid = NULL;//微信公众号，写死
     private $client_ip = "211.137.100.91"; //调用红包接口的主机的IP,服务端IP,写死，即脚本文件所在的IP
     private $apikey = "ie37E7Gv78hcMk3H73xbBhH7yPKypu8X";//pay的秘钥值
     private $total_num = 1;//发放人数。固定值1，不可修改    
@@ -56,9 +57,10 @@ class WXHongBao {
      */
     function __construct(){
         //好像没有什么需要构造函数做的
+        $this->wxappid=$this->getAPPID();
         $this->wxhb_inited = false; 
-        $this->apiclient_cert = getcwd()."/apiclient_cert.pem";
-        $this->apiclient_key = getcwd()."/apiclient_key.pem";
+        $this->apiclient_cert = getcwd()."/Application/Common/Lib/Rebbag/apiclient_cert.pem";
+        $this->apiclient_key = getcwd()."/Application/Common/Lib/Rebbag/apiclient_key.pem";
     }
     
     public function err(){
@@ -117,7 +119,6 @@ class WXHongBao {
         
         //构造提交的数据        
         $xml = $this->genXMLParam();
-        
         //debug
         file_put_contents("hbxml.debug",$xml);
         
@@ -142,21 +143,12 @@ class WXHongBao {
         */        
     	curl_setopt($ch,CURLOPT_POST, 1);
     	curl_setopt($ch,CURLOPT_POSTFIELDS,$xml);
-		
-	
-		
     	$data = curl_exec($ch);
-		
-	
     	if($data){
     	    curl_close($ch);	
     		//$rsxml = simplexml_load_string($data);
 			
-			$rsxml =  XML2Array::createArray($data);
-			
-			
-		
-			
+			$rsxml=XML2Array::createArray($data);
             if($rsxml['xml']['return_code']['@cdata'] == 'SUCCESS' ){
                 return true;
             }else{
@@ -166,7 +158,6 @@ class WXHongBao {
             
     	}else{ 
     		$this->error = curl_errno($ch);
-    		 
     		curl_close($ch);
     		return false;
     	}

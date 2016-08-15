@@ -31,13 +31,28 @@ function subtext($text, $length)
 /**
  * 
  * @param float $price 金额
- * @param number $limit 限制提现最低额度 默认100
+ * @param int $date 最后一次交易成功的时间戳
+ * @param int $limit 限制提现最低额度 默认20
+ * @param int $limitdate 提现时间间隔 ，默认7天
  * @return number 返回可提现金额
  */
-function withdrawcash($price,$limit=100){
+function withdrawcash($price,$date=NULL,$limitdate=7,$limit=20){
     $price=intval($price);
-    $temp=intval($price/$limit);
-    return $temp*$limit;
+    if(empty($date)){
+        return $price;        
+    }
+    $date=strtotime("+".$limitdate." day",$date);
+    if($price>=$limit){
+        if($date<=time()){
+            $data=array('code'=>'000','msg'=>'可提现','price'=>$price);
+        }else{
+            $Date=new \Org\Util\Date();
+            $data=array('code'=>'001','msg'=>'还未到提现时间','date'=>ceil($Date->dateDiff($date)));
+        }
+    }else{
+        $data=array('code'=>'002','msg'=>'未达到最低提现金额 '.$limit.'元');
+    }
+    return $data;
 }
 //验证码的检查
 function check_verify($code, $id = ''){

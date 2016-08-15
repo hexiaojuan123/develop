@@ -97,15 +97,7 @@ class TestController extends Controller {
         }
     }
     public function hh() {
-//         $ar=new ArrayToXML();
-//         $a['name']='彭勃';
-//         $a['sex']='男';
-//         $a['year']=12;
-//         $a['remear']='哈哈哈';
-//         $a['info']['like']='link';
-//         $xml=$ar->toXml($a);
-//         var_dump($xml);
-        $money=10;//单位是分
+        $money=100;//单位是分
         //发送红包
         $hongbao=new WXHongBao();
         $gznowhb=$hongbao->newhb('oGYnqt8d8--axLoPtfBaOVX8cUxk',$money);

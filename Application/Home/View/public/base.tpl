@@ -13,7 +13,7 @@
 		<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
 		<link href="__PUBLIC__/common/css/site.css" rel="stylesheet">
 		<!-- drawer.css -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.0/css/drawer.min.css">
+        <link href="http://cdn.bootcss.com/drawer/3.2.0/css/drawer.min.css" rel="stylesheet">
         <!-- jquery & iScroll -->
         <!-- weui start -->
         <link rel="stylesheet" href="__PUBLIC__/common/weui/css/weui.min.css">
@@ -40,9 +40,9 @@
 	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script src="http://cdn.bootcss.com/iScroll/5.2.0/iscroll.min.js"></script>    
     <!-- drawer.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.0/js/drawer.min.js"></script>
+    <script src="http://cdn.bootcss.com/drawer/3.2.0/js/drawer.min.js"></script>
     <!-- weui js start -->
      <script src="__PUBLIC__/common/weui/js/zepto.min.js"></script>
      <script src="__PUBLIC__/common/weui/js/router.min.js"></script>

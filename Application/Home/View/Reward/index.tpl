@@ -71,3 +71,13 @@ a {
     </div>
     </div>
 </block>
+<block name="js">
+<script>
+$(function(){
+    ($('.pagination').text().trim()=="")?$('.pagination').parent('nav').hide():null;
+    console.log($('.pagination').text().trim());
+ });
+</script>
+   
+
+</block>

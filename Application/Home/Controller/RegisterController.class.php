@@ -9,13 +9,15 @@ class RegisterController extends CommonController {
         $param['openid']=self::$OPENID;
         $param['id']=self::$UID;
         $userinfo=$User->field('`realname`,`faceimg`')->where($param)->find();
-        if($userinfo['realname']){
-            var_dump($userinfo);
+        if(!empty($userinfo['realname'])){
+            redirect(U('/Home/Withdraw'));
+        }else {
+            $this->assign('userinfo',$userinfo);
+            $this->assign('sh',$jssdk->sharedata());
+            $this->assign('appid',$jssdk->getAPPID());
+            $this->display();
         }  
-        $this->assign('userinfo',$userinfo);
-        $this->assign('sh',$jssdk->sharedata());
-        $this->assign('appid',$jssdk->getAPPID());
-        $this->display();
+        
     }
     public function Register() {
         $realname=I('realname',null,false);
@@ -44,7 +46,7 @@ class RegisterController extends CommonController {
                 if(!false==$res){
                     $user->commit();
                     if(empty($redirect)){
-                        $this->success('添加成功',__APP__.'/Home/Index');
+                        redirect(U('/Home/Withdraw'));
                     }
                 }else{
                     $user->rollback();
