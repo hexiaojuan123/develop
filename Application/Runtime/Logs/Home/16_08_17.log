@@ -1,0 +1,16 @@
+[ 2016-08-17T14:45:08+08:00 ] ::1 /develop/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005548s ]
+
+[ 2016-08-17T14:45:09+08:00 ] ::1 /develop/index.php?s=/Home/Jump
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001829s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009866s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010045s ]
+

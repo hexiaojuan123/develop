@@ -32,6 +32,7 @@
 <block name="js">
 <script>
 	$(function(){
+		javascript:window.history.forward(1); 
 		<if condition="$wdc['code']=='001'">
 		adddialog('尚未到达提现时间，{$wdc['date']} 天后方可提现',"{:U('/Home/Index')}");
 		<elseif condition="$wdc['code']=='002'" />

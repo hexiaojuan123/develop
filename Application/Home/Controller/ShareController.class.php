@@ -91,7 +91,7 @@ class ShareController extends Controller {
        }
       }else{
         //前往注册页面
-        redirect(U('/Home/Register/index',array('goods'=>$goodsid,'customerid'=>$customerid,'sendid'=>$sendid)));
+        redirect(U('/Home/Register/index',array('goodsid'=>$goodsid,'sendid'=>$sendid)));
      }
     }
 }

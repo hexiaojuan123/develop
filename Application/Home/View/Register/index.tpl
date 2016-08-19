@@ -36,12 +36,23 @@
 </div>
 <div class="form-group">
 <button type="submit" id="rebtn" class="btn btn-default btn-block">注册</button>
+<p><small>请认真填写您的真实姓名和电话号码，这将影响到您的提现操作！</small></p>
 </div>
 <div class="error-text">
 <p style="text-align: center;"><small></small></p>
 </div>
 </div>
 </form>
+<div class="weui_dialog_alert" id="dialog1" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">提示</strong></div>
+        <div class="weui_dialog_bd dialog-info"></div>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
 </block>
 <block name="js">
 <script>
@@ -61,7 +72,7 @@
         	$('.sendmobile').button('loading');
         	$phone=$('input[name=Phone]').val();
         	if($phone==''){
-        		alert('请输入您的手机号');
+        		adddialog('请输入您的手机号');
         		$('.sendmobile').button('reset');
         	}else{
         		mobileVerify($phone);
@@ -71,7 +82,7 @@
         	ref();
         });
     });
-    var c=60;
+    var c=120;
     var t;
     function timedCount()
     {
@@ -111,11 +122,23 @@
     				console.log(data);
     				timedCount();
     			}else{
-    				alert('短信发送失败，请稍后在试');
+    				adddialog('短信发送失败，请稍后在试');
     			}
     		}
     	});
     }
+	function adddialog(coninfo,url){
+		$('#btn-save').button('loading');
+		$('.dialog-info').text(coninfo);
+		$('#dialog1').show('fast').on('click', '.weui_btn_dialog', function () {
+			if(url!='' && url!=null){
+				window.location.href=url;
+			}
+            $('#dialog1').off('click').hide('fast',function(){
+            	$('#btn-save').button('reset');
+            });
+        });
+	}
     function ref(){
     	 $('#img-code').attr("src",'{:U('/Home/Verify/Index/index')}?'+Math.random());
     } 

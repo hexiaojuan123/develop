@@ -114,6 +114,7 @@
   	                'chooseCard',
   	                'openCard'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 });
+
 $shareurl=location.href.split('#')[0];
 wx.ready(function () {
 	<neq name="showshare" value="2">wx.hideOptionMenu();<else />wx.showOptionMenu();</neq>
@@ -123,6 +124,11 @@ wx.ready(function () {
     link: <if condition="$sharelink eq null">$shareurl<else />'{$sharelink}'</if>,//分享的链接
     imgUrl: '',//分享的图标
   };
+    wx.hideMenuItems({
+        menuList: ['onMenuShareQQ',
+                   'onMenuShareWeibo',
+                   'onMenuShareQZone'] // 要显示的菜单项，所有menu项见附录3
+    });
     //var adurl="http://www.baidu.com/";//回调地址
     wx.onMenuShareAppMessage({
         title: shareData.title,

@@ -15,6 +15,7 @@ class RegisterController extends CommonController {
             $this->assign('userinfo',$userinfo);
             $this->assign('sh',$jssdk->sharedata());
             $this->assign('appid',$jssdk->getAPPID());
+            C('TOKEN_ON',false);
             $this->display();
         }  
         
@@ -29,17 +30,18 @@ class RegisterController extends CommonController {
             $this->error('图形验证码错误');
         }
         if($vecode!=$code){
-            $this->error('验证码错误请确认手机号');
+            $this->error('短信验证码错误，请确认手机号');
         }
         if(empty($phone)||empty($vecode)||empty($realname)){
           $this->error('请将数据填写完整');  
         }else{
+           
             $data['realname']=$realname;
             $data['phone']=$phone;
             $where['id']=self::$UID;
             $user=D('User');
             $user->startTrans();
-            if(!$user->create($data)){
+            if(!$user->token(false)->create($data)){
                 $this->error($user->getError());
             }else{
                 $res=$user->where($where)->save();

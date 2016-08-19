@@ -33,11 +33,10 @@ class CommonController extends Controller {
         if(!session('?openid')||!session('?uid')){
             $sendid=I('sendid');//获取发送者的ID
             $goodsid=I('goodsid');//获取商品表的ID
-            $customerid=I('customerid');//获取客户表的ID
             if(empty($sendid)||empty($goodsid))
                 redirect(__APP__.'/Home/Jump');
             else 
-                redirect(__APP__.'/Home/Jump/goodsid='.$goodsid.'/sendid=/'.$sendid);
+                redirect(__APP__.'/Home/Jump/index/goodsid/'.$goodsid.'/sendid/'.$sendid);
         }
         else {
             self::$OPENID=session('openid');

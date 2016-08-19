@@ -4,21 +4,25 @@ use Think\Controller;
 use Common\Lib\Scope;
 header("Content-Type: text/html; charset=utf8");
 class JumpController extends Controller {
-    private static $parma=NULL;
+    public static $parma=NULL;
+    public static $RedirectUrl=NULL; 
     public function index(){
       $type=I('type')?'snsapi_userinfo':'snsapi_base';
-      $sendid=I('sendid');//获取发送者的ID
-      $goodsid=I('goodsid');//获取商品表的ID
-      $customerid=I('customerid');//获取客户表的ID
+      $sendid=I('get.sendid');//获取发送者的ID
+      $goodsid=I('get.goodsid');//获取商品表的ID
       if(!empty($goodsid)&&!empty($sendid)){
-         self::$parma='/goodsid='.$goodsid.'/sendid=/'.$sendid;
+         self::$parma='/goodsid/'.$goodsid.'/sendid/'.$sendid;
       }
-      $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump/'.$type;
+      $redirect_url='http://jhl.aipu.com/develop/index.php?s=/Home/Jump/'.$type.self::$parma;
       $scope=new Scope($redirect_url,$type);
-      redirect($scope->triggerurl());
-      exit();
+      exit(redirect($scope->triggerurl()));
     }
     public function snsapi_base(){
+        $sendid=I('get.sendid');//获取发送者的ID
+        $goodsid=I('get.goodsid');//获取商品表的ID
+        if(!empty($goodsid)&&!empty($sendid)){
+            self::$parma='/goodsid/'.$goodsid.'/sendid/'.$sendid;
+        }
         $code=I('code');
         $scope=new Scope();
         $data=$scope->GetAccess_token($code);
@@ -36,12 +40,13 @@ class JumpController extends Controller {
                     session('uid',$selsect_openid['id']);
                     if($selsect_openid['realname']!==null){
                          if(!empty(self::$parma))
-                            redirect(__APP__.'/Home/Sendshare/index'.self::$parma);
+                            redirect(__APP__.'/Home/Share/index'.self::$parma);
                         else 
                             redirect(__APP__.'/Home/Index');
                     }else{
+                        
                         if(!empty(self::$parma))
-                            redirect(__APP__.'/Home/Sendshare/index'.self::$parma);
+                            redirect(__APP__.'/Home/Share/index'.self::$parma);
                         else 
                             redirect(__APP__.'/Home/Index');
                     }
@@ -85,7 +90,7 @@ class JumpController extends Controller {
                     if($sqlres){
                         session('uid',$sqlres);
                         if(!empty(self::$parma))
-                            redirect(__APP__.'/Home/Sendshare/index'.self::$parma);
+                            redirect(__APP__.'/Home/Share/index'.self::$parma);
                         else 
                             redirect(__APP__.'/Home/Index');
                         exit();
