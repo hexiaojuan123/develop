@@ -2,20 +2,30 @@
 <head></head>
 <body>
 <form action="<?php echo U('/Home/Hh/cc');?>" method="post">
-{__TOKEN__}
-<div class="panel panel-default">
-<div class="panel-body">
-<lable class="col-md-1">price:</lable>
-<div class="col-md-4">
-<input type="text" class="form-control" name="price" placeholder="price" />
-</div>
-<div class="col-md-2">
-<button type="submit" class="btn btn-default btn-balck">注册</button>
-</div>
-</div>
+<div>
+    <img class="lazy" data-original="/develop/Public/common/images/1.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/2.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/900.jpg" width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/1.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/2.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/900.jpg"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/1.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/2.png"  width="600px" height="400px"/>
+    <img class="lazy" data-original="/develop/Public/common/images/900.jpg"  width="600px" height="400px"/>
 </div>
 </form>
 </body>
 </html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="/develop/Public/common/js/jquery.lazyload.min.js"></script>
 <script type="text/javascript">
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("img.lazy").lazyload({
+            //threshold : 200,//提前多少像素加载
+            effect : "fadeIn",//显示方式淡入淡出
+            skip_invisible : true//跳过未查看的
+        });
+    })
 </script>

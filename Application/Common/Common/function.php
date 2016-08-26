@@ -36,8 +36,7 @@ function subtext($text, $length)
  * @param int $limitdate 提现时间间隔 ，默认7天
  * @return number 返回可提现金额
  */
-function withdrawcash($price,$date=NULL,$limitdate=7,$limit=20){
-    $price=intval($price);
+function withdrawcash($price,$date=NULL,$limitdate=7,$limit=20.00){
     if(empty($date)){
         return $price;        
     }

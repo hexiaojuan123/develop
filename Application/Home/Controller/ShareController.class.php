@@ -43,7 +43,7 @@ class ShareController extends Controller {
         $url='&send='.$sendid.'&receive='.$uid.'&goodsid='.$goodsid;
         if($resurl){
             //当客户表中有该用户对应手机号且接收者的ID与自己匹配
-            if(!$Customer->create($data)){
+            if(!$Customer->token(false)->create($data)){
                 $this->error($Customer->getError());
             }else{
                 //将状态改变为有意向
@@ -75,8 +75,8 @@ class ShareController extends Controller {
                 //判断如果存在该用户的推荐意向将无需重复添加客户信息
                 $this->success('正在跳转... ',$geturl['url'].$url);
             }else{
-                if(!$Customer->create($data)){
-                    $this->error($Customer->getDbError());
+                if(!$Customer->token(false)->create($data)){
+                    $this->error($Customer->getError());
                 }else{
                     $resadd=$Customer->add();
                     if($resadd){

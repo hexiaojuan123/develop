@@ -9,6 +9,11 @@ class IndexController extends CommonController {
         $this->assign('showshare',2);
         $user=M('user');
         $order=M('Order');
+        $CommissionLog=M('commission_log');
+        $condition['sendid']=self::$UID;
+        $condition['state']=1;//可提现的金额
+        $balance=$CommissionLog->where($condition)->sum('commission');
+        $balance=!empty($balance)?$balance:0.00;
         $where['openid']=self::$OPENID;
         $where['think_user.id']=self::$UID;
         $res=$user->where($where)->find();
@@ -23,6 +28,7 @@ class IndexController extends CommonController {
             $this->assign('list',$list);
         }
         $this->assign('count',$count);
+        $this->assign('balance',$balance);
         $this->display();
     }
 }

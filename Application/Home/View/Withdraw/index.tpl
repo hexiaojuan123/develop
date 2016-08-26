@@ -3,9 +3,7 @@
 <form action="{:U('/Home/Withdraw/getHongbao')}" method="post">
 <div class="row">
 <h1 style="text-align: center;">提现</h1>
-<if condition="$wdc['code']=='000'">
-<h4 style="text-align: center;">可提现金额:{$wdc['price']}元</h4>
-</if>
+<h4 style="text-align: center;">可提现金额:{$wdc}元</h4>
 <div class="col-md-12">
 <div class="form-group">
 <label for="realname">提现金额：</label>

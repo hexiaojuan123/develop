@@ -38,7 +38,7 @@
         <h1 style="text-align: center;">我的佣金</h1>
         <ul class="nav nav-pills" role="tablist">
             <li role="presentation" class="active wdth pull-left"><a href="#home" aria-controls="home" role="tab"
-                                                                     data-toggle="tab">可提现{$price['balance']|withdrawcash}元</a>
+                                                                     data-toggle="tab">可提现{$price}元</a>
             </li>
             <li role="presentation" class="wdth pull-right"><a id="tabed" href="#profile" aria-controls="profile" role="tab"
                                                                data-toggle="tab">已提现 0元</a></li>

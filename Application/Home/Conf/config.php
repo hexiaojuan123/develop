@@ -4,7 +4,7 @@ return array(
         'TOKEN_NAME'    =>    '__hash__',    // 令牌验证的表单隐藏字段名称，默认为__hash__
         'TOKEN_TYPE'    =>    'md5',  //令牌哈希验证规则 默认为MD5
         'TOKEN_RESET'   =>    true,  //令牌验证出错后是否重置令牌 默认为true
-        'TMPL_ACTION_ERROR' => 'Public:jump_error',
-        //默认成功跳转对应的模板文件
-        'TMPL_ACTION_SUCCESS' => 'Public:jump_success',
+//         'TMPL_ACTION_ERROR' => 'Public:jump_error',
+//         //默认成功跳转对应的模板文件
+//         'TMPL_ACTION_SUCCESS' => 'Public:jump_success',
 );
