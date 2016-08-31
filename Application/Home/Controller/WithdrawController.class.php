@@ -6,21 +6,22 @@ class WithdrawController extends CommonController {
     public function index(){
         $User=M('User');
         $commission_log=M('CommissionLog');
+        $limitmoney=20;
         $param['openid']=self::$OPENID;
         $param['id']=self::$UID;
         $userinfo=$User->where($param)->cache(10)->find();
         $condition['sendid']=self::$UID;
-        $condition['state']=1;
+        $condition['status']=1;
         $wdc=$commission_log->where($condition)->where('UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY))')->sum('commission');
         $jssdk=new JS_SDK();
         $this->assign('userinfo',$userinfo);
         $this->assign('sh',$jssdk->sharedata());
         $this->assign('appid',$jssdk->getAPPID());
         $this->assign('wdc',$wdc);
+        $this->assign('limitmoney',$limitmoney);
         $this->display();
     }
 //     public function getHongbao() {
-        
 //         $Receive=M('Receive');
 //         $userinfo=self::userinfo();
 //         $data['money']=floatval(I('price',0,'intval'));

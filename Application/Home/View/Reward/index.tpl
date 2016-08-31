@@ -41,7 +41,7 @@
                                                                      data-toggle="tab">可提现{$price}元</a>
             </li>
             <li role="presentation" class="wdth pull-right"><a id="tabed" href="#profile" aria-controls="profile" role="tab"
-                                                               data-toggle="tab">已提现 0元</a></li>
+                                                               data-toggle="tab">已提现 {$priced}元</a></li>
             <li class="clearfix"></li>
         </ul>
         <div class="tab-content">

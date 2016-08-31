@@ -1,0 +1,74 @@
+[ 2016-08-30T09:43:32+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+ERR: 非法操作:fakk
+
+[ 2016-08-30T09:43:47+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000454s ]
+ERR: 参数错误或者未定义:param
+
+[ 2016-08-30T09:43:53+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `think_receive` [ RunTime:0.0097s ]
+SQL: SHOW COLUMNS FROM `think_commission_log` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`sendid`,`goodsid`,`commission`,`createtime`,`status` FROM `think_commission_log` WHERE `sendid` = 6266 AND `status` = 1 AND ( UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY)) )  [ RunTime:0.0018s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008313s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008355s ]
+
+[ 2016-08-30T09:44:59+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000782s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000939s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001037s ]
+SQL: SHOW COLUMNS FROM `think_receive` [ RunTime:0.0017s ]
+SQL: SHOW COLUMNS FROM `think_commission_log` [ RunTime:0.0016s ]
+SQL: SELECT `id`,`sendid`,`goodsid`,`commission`,`createtime`,`status` FROM `think_commission_log` WHERE `sendid` = 6266 AND `status` = 1 AND ( UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY)) )  [ RunTime:0.0015s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000722s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2016-08-30T09:45:28+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000620s ]
+SQL: SHOW COLUMNS FROM `think_receive` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `think_commission_log` [ RunTime:0.0019s ]
+SQL: SELECT `id`,`sendid`,`goodsid`,`commission`,`createtime`,`status` FROM `think_commission_log` WHERE `sendid` = 6266 AND `status` = 1 AND ( UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY)) )  [ RunTime:0.0015s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000471s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000501s ]
+
+[ 2016-08-30T09:45:42+08:00 ] ::1 /develop/Home/Test/fakk
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000605s ]
+SQL: SHOW COLUMNS FROM `think_receive` [ RunTime:0.0023s ]
+SQL: SHOW COLUMNS FROM `think_commission_log` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`sendid`,`goodsid`,`commission`,`createtime`,`status` FROM `think_commission_log` WHERE `sendid` = 6266 AND `status` = 1 AND ( UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY)) )  [ RunTime:0.0019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000715s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000757s ]
+

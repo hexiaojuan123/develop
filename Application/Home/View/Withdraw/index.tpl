@@ -31,17 +31,15 @@
 <script>
 	$(function(){
 		javascript:window.history.forward(1); 
-		<if condition="$wdc['code']=='001'">
-		adddialog('尚未到达提现时间，{$wdc['date']} 天后方可提现',"{:U('/Home/Index')}");
-		<elseif condition="$wdc['code']=='002'" />
+		<if condition="$wdc lt $limitmoney">//小于
 		adddialog('您的提现余额还未达到提现最低标准，赶紧分享获取更多佣金在来领取吧！',"{:U('/Home/Index')}");
 		</if>
 		var pr=document.getElementById('price');
 		pr.oninput=function(){
 			if(pr.value.length<=3){
 				if(parseInt(pr.value)>0&&parseInt(pr.value)<=200){
-				    if(parseInt(pr.value)><if condition="$wdc['price'] neq null">{$wdc['price']}<else />0</if>){
-				    	adddialog('不能超出您的可提现金额 {$wdc['price']} 元');
+				    if(parseInt(pr.value)><if condition="$wdc neq null">{$wdc}<else />0</if>){
+				    	adddialog('不能超出您的可提现金额 {$wdc} 元');
 				    	pr.value="";
 					}else{
 					    console.log(pr.value.length);

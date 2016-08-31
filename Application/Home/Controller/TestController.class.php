@@ -109,4 +109,102 @@ class TestController extends Controller {
             echo '已经为您准备上红包，请笑纳！';//正式使用把最后的删除
         }
     }
+    public function  jjsss() {
+        $Receive=M('Receive');
+        $commission_log=D('CommissionLog');
+        $uid=self::$UID;
+        $condition['sendid']=6266;//需要提现的用户ID
+        $condition['status']=1;
+        $money=I('price',0.00,'floatval');//提现的金额
+        $parme=6;//最小提现金额
+        $price=0;//初始化余额总数
+        if($money<$parme){
+            $this->error('提现金额不能小于最小提现额度');
+        }
+        $field='`id`,`sendid`,`goodsid`,`commission`,`createtime`,`status`';
+        $wdc=$commission_log->field($field)->where($condition)->where('UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY))')->select();
+        foreach ($wdc as $item){
+            $p+=floatval($item['commission']);
+        }
+        if($p<=$parme){
+            exit($this->error('提现金额不能大于可提现余额'));
+        }
+        /**--获取所有能提现的款项--**/
+        if($wdc){
+            foreach ($wdc as $val){
+                $price+=floatval($val['commission']);
+                $data['status']=2;
+                $where['id']=$val['id'];
+                $commission_log->startTrans();
+                $mosrs=$commission_log->lock(true)->where($where)->save($data);
+                if($mosrs){
+                    $isfindmoney=$this->findredbag($money*100);
+                    if($isfindmoney){
+                        
+                        $isrecev=$Receive->save();
+                        $commission_log->commit();
+                    }
+                    else{ 
+                        $commission_log->rollback();
+                        $this->error('系统繁忙');
+                    }
+                }else{
+                    $commission_log->rollback();
+                    //$this->error('默认提交数据出错');
+                }
+                if($price>=$parme){
+                    $limitprice=$price-$parme;
+                    if($limitprice>0){
+                        /**---当余额大于提现金额---**/
+                        $data['commission']=$limitprice;
+                        $data['status']=1;
+                        if(!$commission_log->token(false)->create($data)){
+                            $commission_log->rollback();
+                            $this->error($commission_log->getError());
+                        }else{
+                            $result=$commission_log->lock(true)->where($where)->save();
+                            if($result){
+                                $isfindmoney=$this->findredbag($money*100);
+                                if($isfindmoney){
+                                    $commission_log->commit();
+                                }
+                                else{
+                                    $commission_log->rollback();
+                                    $this->error('系统繁忙');
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    protected function findredbag($money=0){
+        $hongbao=new WXHongBao();
+        $gznowhb=$hongbao->newhb(self::$OPENID,$money);
+        $fsjg=$hongbao->send();
+        $content=$hongbao->error();
+        if($fsjg!='1'){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public function fakk() {
+        $Receive=D('Receive');//receive 模型
+        $commission_log=D('CommissionLog');//CommissionLog 模型
+        $money=I('price',0.00,'floatval');//用户提现的金额
+        $sendid=6266;//发送者ID
+        $status=1;//提现状态 1:已提现，2:未提现
+        $price=0;//初始化余额总数
+
+        /***查询 达到7天后可提现的金额所有数据**begin*/
+        $condition['sendid']=$sendid;
+        $condition['status']=$status;
+        $field='`id`,`sendid`,`goodsid`,`commission`,`createtime`,`status`';
+        $all_price_order=$commission_log->field($field)->where($condition)->where('UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY))')->select();
+        /***查询 达到7天后可提现的金额所有数据**end*/
+        
+    }
 }

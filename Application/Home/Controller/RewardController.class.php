@@ -9,9 +9,12 @@ class RewardController extends CommonController {
         $this->assign('appid',$jssdk->getAPPID());
         $commission_log=M('CommissionLog');
         $condition['sendid']=self::$UID;
-        $condition['state']=1;
+        $condition['status']=1;
         $price=$commission_log->where($condition)->where('UNIX_TIMESTAMP(createtime) < UNIX_TIMESTAMP(SUBDATE(NOW(), INTERVAL 7 DAY))')->sum('commission');
-        $price=withdrawcash($price);
+        $receive=M('Receive');
+        $price_con['userid']=self::$UID;
+        $priced=$receive->where($price_con)->SUM('money');
+        $this->assign('priced',$priced);
         $this->assign('price',$price);
         $this->display(); 
     }

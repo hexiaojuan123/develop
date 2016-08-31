@@ -11,7 +11,7 @@
 </tr></thead>
 <tbody>
 <volist name="list" id="vo" empty="当前无数据">
-<tr class="listtable"><th hidden>{$vo['id']}</th><td><img src="{$vo['info']['faceimg']}" alt="{$vo['info']['username']}" width="20px" height="20px" /></td><td>{$vo['info']['username']|subtext=8}</td><td>{$vo['createtime']}</td><td>{$vo['status']}</td></tr>
+<tr class="listtable"><th hidden>{$vo['id']}</th><td><img src="{$vo['info']['faceimg']}" alt="{$vo['info']['username']}" width="20px" height="20px" /></td><td>{$vo['info']['username']|subtext=7}</td><td>{$vo['createtime']}</td><td>{$vo['status']}</td></tr>
 </volist>
 </tbody>
 </table>
